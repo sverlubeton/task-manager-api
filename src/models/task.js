@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
+const {Schema, model} = require('mongoose')
 
-
-const taskSchema = mongoose.Schema({
+const taskSchema = new Schema({
     description: {
         type: String,
         required: true,
@@ -12,13 +11,12 @@ const taskSchema = mongoose.Schema({
         default: false
     },
     owner: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     }
 }, {
     timestamps: true
 })
-const Task = mongoose.model('Task', taskSchema)
 
-module.exports = Task
+module.exports = model('Task', taskSchema)

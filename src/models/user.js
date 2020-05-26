@@ -1,10 +1,10 @@
-const mongoose = require('mongoose')
+const {Schema, model} = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const Task = require('./task')
+const Task = require('../models/task')
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -118,6 +118,4 @@ userSchema.pre('remove', async function(next) {
     next()
 })
 
-const User = mongoose.model('User', userSchema)
-
-module.exports = User
+module.exports = model('User', userSchema)
