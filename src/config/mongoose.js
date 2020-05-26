@@ -7,5 +7,3 @@ mongoose.connect(process.env.MONGODB_URL, {
     useFindAndModify:false
 })
 
-
-///c/Users/Константин/mongodb/bin/mongod.exe --dbpath=/c/Users/Константин/mongodb-data
